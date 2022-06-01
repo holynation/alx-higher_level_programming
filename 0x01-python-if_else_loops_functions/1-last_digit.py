@@ -4,9 +4,9 @@ number = random.randint(-10000, 10000)
 lastDigit = number
 
 if number < 0:
-	lastDigit = number % (-10)
+    lastDigit = number % (-10)
 else:
-	lastDigit = number % 10
+    lastDigit = number % 10
 
 result = "Last digit of {:d} is {:d} and is {}"
 if lastDigit > 5:
