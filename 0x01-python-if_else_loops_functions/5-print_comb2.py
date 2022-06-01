@@ -1,6 +1,7 @@
 #!/usr/bin/python3
+result = ""
 for i in range(0, 100):
-    print("{:02d}".format(i), end='')
-    if i != (100 - 1):
-        print(", ", end='')
-print("\n")
+    result += "{:02d}".format(i)
+    if result != "" and i != (100 - 1):
+        result += ", "
+print(result)
