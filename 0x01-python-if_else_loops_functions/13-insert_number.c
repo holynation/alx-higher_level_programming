@@ -9,7 +9,7 @@
 
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *tmp = NULL;
+	listint_t *tmpNode = NULL;
 	listint_t *new = NULL;
 
 	if (!head)
@@ -22,49 +22,47 @@ listint_t *insert_node(listint_t **head, int number)
 	new->n = number;
 	new->next = NULL;
 
-	/* if no linked list, insert node as the only member */
+	/* if no linked list, insert node as the only member of the list */
 	if (*head == NULL)
 	{
 		*head = new;
 		(*head)->next = NULL;
 		return (new);
 	}
-	/* if only one node in linked list, do comparision and insert */
+	/* if only one node in linked list, compare and insert */
 	if ((*head)->next == NULL)
 	{
-		if ((*head)->n < new->n)
-			(*head)->next = new;
-		else
-		{
+		if ((*head)->n > new->n)
 			new->next = *head;
 			*head = new;
-		}
+		else
+			(*head)->next = new;
 		return (new);
 	}
 
-	/* if lots of nodes in linked list, do comparision and insert */
-	tmp = *head;
-	while (tmp->next != NULL)
+	/* if more than one nodes in linked list, compare and insert */
+	tmpNode = *head;
+	while (tmpNode->next != NULL)
 	{
 		/* if new node num is smaller than first node, insert */
-		if (new->n < tmp->n)
+		if (new->n < tmpNode->n)
 		{
-			new->next = tmp;
+			new->next = tmpNode;
 			*head = new;
 			return (new);
 		}
 		/* if new node num is the same as an existing node, insert */
 		/* compare previous node and next node, insert in between */
-		if (((new->n > tmp->n) && (new->n < (tmp->next)->n)) ||
-		    (new->n == tmp->n))
+		if (((new->n > tmpNode->n) && (new->n < (tmpNode->next)->n)) ||
+		    (new->n == tmpNode->n))
 		{
-			new->next = tmp->next;
-			tmp->next = new;
+			new->next = tmpNode->next;
+			tmpNode->next = new;
 			return (new);
 		}
-		tmp = tmp->next;
+		tmpNode = tmpNode->next;
 	}
 	/* if new node is greatest and never inserted, insert now */
-	tmp->next = new;
+	tmpNode->next = new;
 	return (new);
 }
