@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
     from sys import argv
-    userArgs = argv[1:] #  ignoring the filename with idx 0
+    userArgs = argv[1:]  # ignoring the filename with idx 0
     size = len(userArgs)
     print("{:d} {:s}{:s}".
           format(size,
