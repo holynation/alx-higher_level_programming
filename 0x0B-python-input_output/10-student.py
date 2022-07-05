@@ -41,7 +41,7 @@ class Student():
             return self.__dict__
         else:
             listDic = {}
-            for att in attrs:
+            for attr in attrs:
                 if attr in self.__dict__.keys():
                     listDic[attr] = self.__dict__[attr]
             return listDic
