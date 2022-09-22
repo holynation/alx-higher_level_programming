@@ -15,18 +15,17 @@ def find_peak(list_of_integers):
     beg = 0
     end = len(l)-1
 
-    if list_of_integers[beg] > list_of_integers[beg+1]:
-        return list_of_integers[beg]
-    if list_of_integers[end] > list_of_integers[end-1]:
-        return list_of_integers[end]
+    if l[beg] > l[beg+1]:
+        return l[beg]
+    if l[end] > l[end-1]:
+        return l[end]
 
     mid = (beg+end)//2
-    if list_of_integers[mid-1] < list_of_integers[mid]
-    and list_of_integers[mid+1] < list_of_integers[mid]:
-        return list_of_integers[mid]
-    if list_of_integers[mid] < list_of_integers[mid-1]:
-        return find_peak(list_of_integers[beg:mid+1])
-    elif list_of_integers[mid] < list_of_integers[mid+1]:
-        return find_peak(list_of_integers[mid:end+1])
+    if l[mid-1] < l[mid] and l[mid+1] < l[mid]:
+        return l[mid]
+    if l[mid] < l[mid-1]:
+        return find_peak(l[beg:mid+1])
+    elif l[mid] < l[mid+1]:
+        return find_peak(l[mid:end+1])
     else:
-        return list_of_integers[beg]
+        return l[beg]
