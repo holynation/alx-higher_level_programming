@@ -11,22 +11,22 @@ def find_peak(list_of_integers):
     if len(list_of_integers) == 0:
         return None
 
-    temp_list_integers = list_of_integers
-    start = 0
+    l = list_of_integers
+    beg = 0
     end = len(l)-1
 
-    if temp_list_integers[start] > temp_list_integers[start+1]:
-        return temp_list_integers[start]
-    if temp_list_integers[end] > temp_list_integers[end-1]:
-        return temp_list_integers[end]
+    if list_of_integers[beg] > list_of_integers[beg+1]:
+        return list_of_integers[beg]
+    if list_of_integers[end] > list_of_integers[end-1]:
+        return list_of_integers[end]
 
-    mid = (start+end)//2
-    if temp_list_integers[mid-1] < temp_list_integers[mid] and
-    temp_list_integers[mid+1] < temp_list_integers[mid]:
-        return temp_list_integers[mid]
-    if temp_list_integers[mid] < temp_list_integers[mid-1]:
-        return find_peak(temp_list_integers[start:mid+1])
-    elif temp_list_integers[mid] < temp_list_integers[mid+1]:
-        return find_peak(temp_list_integers[mid:end+1])
+    mid = (beg+end)//2
+    if list_of_integers[mid-1] < list_of_integers[mid]
+    and list_of_integers[mid+1] < list_of_integers[mid]:
+        return list_of_integers[mid]
+    if list_of_integers[mid] < list_of_integers[mid-1]:
+        return find_peak(list_of_integers[beg:mid+1])
+    elif list_of_integers[mid] < list_of_integers[mid+1]:
+        return find_peak(list_of_integers[mid:end+1])
     else:
-        return temp_list_integers[start]
+        return list_of_integers[beg]
