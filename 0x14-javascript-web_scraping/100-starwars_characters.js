@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
-let id = process.argv[2];
-let url = 'https://swapi-api.hbtn.io/api/films/' + id;
+const id = process.argv[2];
+const url = 'https://swapi-api.hbtn.io/api/films/' + id;
 const request = require('request');
 
 request(url, function (err, response, body) {
@@ -11,11 +11,11 @@ request(url, function (err, response, body) {
     body = JSON.parse(body);
     for (let i in body.characters) {
       request(body.characters[i], function (err, response, body) {
-      	if (err) {
-      	  console.log(err);
-      	} else if (response.statusCode === 200) {
-      	  console.log(JSON.parse(body).name);
-      	}
+	if (err) {
+	  console.log(err);
+	} else if (response.statusCode === 200) {
+	  console.log(JSON.parse(body).name);
+	}
       });
     }
   } else {
