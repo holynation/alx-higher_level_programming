@@ -9,9 +9,9 @@ request(url, function (err, response, body) {
   } else if (response.statusCode === 200) {
     const films = JSON.parse(body).results;
     let count = 0;
-    for (let i in films) {
-      let chars = films[i].characters;
-      for (let c in chars) {
+    for (const i in films) {
+      const chars = films[i].characters;
+      for (const c in chars) {
         if (chars[c].includes('18')) {
           count++;
         }
